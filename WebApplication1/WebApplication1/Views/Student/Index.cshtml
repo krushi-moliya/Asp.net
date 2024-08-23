@@ -1,0 +1,54 @@
+﻿@model List<WebApplication1.Models.Student>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div>
+        <h2>This is a Home page</h2>
+        <a href="~/Student/About">About</a>
+        <a href="~/Student/Contact">Contact</a>
+        <a href="~/Student/TemplateHelper">Template Helper</a>
+        <br />
+       
+        <table border="1">
+            <tr>
+                <th>id</th>
+                <th>name</th>
+                <th>city</th>
+                <th>subject</th>
+                
+            </tr>
+            @foreach (var item in Model)
+            {
+        <tr>
+            <td>@item.id</td>
+            <td>@item.name</td>
+            <td>@item.subject</td>
+            <td>@item.city</td>
+ 
+        </tr>
+            }
+            @*<tr>
+                <td>@Model.id</td>
+                <td>@Model.name</td>
+                <td>@Model.city</td>
+                <td>
+                    @foreach (var item in (List<String>)ViewBag.subject)
+            {
+                @item;
+            }
+                </td>
+               
+            </tr>*@
+        </table>
+    </div>
+</body>
+</html>

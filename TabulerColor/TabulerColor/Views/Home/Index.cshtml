@@ -1,0 +1,78 @@
+﻿@model List<TabulerColor.Models.Employee>
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div>
+        <h2>This is a Home page</h2>
+        <a href="~/Home/About">About</a>
+        <a href="~/Home/Contact">Contact</a>
+        <br />
+
+        <table border="2" class="table table-bordered table-hover">
+            <tr class="bg-primary">
+                <th>Id</th>
+                <th>Name</th>
+                <th>Name length</th>
+                <th>Name reverse</th>
+                <th>Age</th>
+                <th>Select</th>
+                <th>City</th>
+
+            </tr>
+            @{
+                int count = 0;
+            }
+
+            @foreach (var item in Model)
+            {
+                count++;
+                string rowClass;
+                if (count % 2 == 0)
+                {
+                    rowClass = "bg-secondary";
+                }
+                else
+                {
+                    rowClass = "bg-danger";
+                }
+                //Reverse
+                string reverseName = "";
+                for(int i = item.name.Length - 1; i>=0; i--)
+                {
+                    reverseName += item.name[i];
+                }
+
+                <tr class="@rowClass">
+                    <td>@item.id</td>
+                    <td>@item.name</td>
+                    <td>@item.name.Length</td>
+                    <td>@reverseName</td>
+                    <td>@item.age</td>
+                    <td>
+                        @if(item.age >= 18)
+                        {
+                            <h5>Selected</h5>
+                        }
+                        else
+                        {
+                            <h5>Not selected</h5>
+                        }
+                    </td>
+                    <td>@item.city</td>
+
+                </tr>
+            }
+
+        </table>
+    </div>
+</body>
+</html>

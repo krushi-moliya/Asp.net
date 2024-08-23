@@ -1,0 +1,46 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Contact</title>
+</head>
+<body>
+    <div>
+        <h2>This is a Contact page</h2>
+        <a href="~/Student/Index">Home</a>
+        <a href="~/Student/About">About</a>
+        <br />
+        <br />
+        <form method="post" action="">
+            <div style="border:1px solid black; width:fit-content; padding:20px">
+
+                @using (Html.BeginForm("Contact", "Stu@*dent", FormMethod.Post))
+                {
+                    @Html.Label("Enter no 1")
+                    @Html.TextBox("a")<br /><br />
+                    @Html.Label("Enter no 2")
+                    @Html.TextBox("b")<br /><br />
+                }
+
+                <div style="margin: 10px; text-align:center">
+                    <button class="btn btn-outline-primary" name="btn" type="submit" value="add">add</button>
+                    <button class="btn btn-outline-primary" name="btn" type="submit" value="sub">sub</button>
+                    <button class="btn btn-outline-primary" name="btn" type="submit" value="mul">mul</button>
+                    <button class="btn btn-outline-primary" name="btn" type="submit" value="div">div</button>
+                </div><br />
+                <h3>Result: @ViewBag.Result</h3>
+            </div>
+        
+
+         
+        </form>
+
+    </div>
+</body>
+</html>

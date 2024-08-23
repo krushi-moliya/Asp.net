@@ -1,0 +1,53 @@
+﻿@model List<WebApplication1.Models.Student>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>About</title>
+</head>
+<body>
+    <div>
+        <h2>This is a About page</h2>
+        <h4>@ViewBag.bag</h4>
+        <p>
+            @foreach (var c in (List<String>)ViewBag.country)
+            {
+                <ul>
+                    <li>@c<br /></li>
+                </ul>
+            }
+        </p>
+
+        <h4>@ViewData["state"]</h4>
+        <p>
+            @foreach (var c in (List<String>)ViewData["state_list"])
+            {
+                <ul>
+                    <li>@c<br /></li>
+                </ul>
+            }
+        </p>
+
+        @helper MyData(string[] temp)
+        {
+            <ul>
+                @foreach (var item in temp)
+                {
+                    <li>@item</li>
+                }
+            </ul>
+        }<br />
+
+        <p>Inline htmp helper</p>
+        <div>@MyData(new string[] { "helper", "html" })</div>
+
+        <a href="~/Student/Index">Home</a>
+        <a href="~/Student/Contact">Contact</a>
+    </div>
+</body>
+</html>
